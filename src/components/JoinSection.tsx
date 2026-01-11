@@ -138,7 +138,7 @@ const JoinSection = () => {
                 <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <step.icon className="w-7 h-7 text-primary-foreground" />
                 </div>
-                <span className="text-4xl font-display font-bold text-muted/50">{step.step}</span>
+                <span className="text-4xl font-display font-bold text-muted/50 text-secondary">{step.step}</span>
               </div>
               <h3 className="font-display font-semibold text-lg text-foreground mb-2">{step.title}</h3>
               <p className="text-muted-foreground text-sm">{step.description}</p>
