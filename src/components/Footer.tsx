@@ -146,8 +146,8 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
                 <span className="text-white/70 text-sm">
-                  Rua da Cooperação, 123<br />
-                  Luanda, Angola
+                Av. Cmte. Valódia, Bairro <br />
+                Combatentes, Luanda, Angola
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -159,7 +159,7 @@ const Footer = () => {
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-secondary shrink-0" />
                 <a href="mailto:info@chcgs.ao" className="text-white/70 text-sm hover:text-white">
-                  info@chcgs.ao
+                  info@cooperativasanep.co.ao
                 </a>
               </li>
               <li className="flex items-center gap-3">

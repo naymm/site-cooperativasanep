@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { MapPin, Home, ArrowRight, Check, Clock, Hammer, Calendar, Ruler, Users, Building2, Phone, Mail } from 'lucide-react';
+import { MapPin, Home, ArrowRight, Check, Clock, Hammer, Calendar, Ruler, Users, Building2, Phone, Mail, Images, Video } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -10,9 +10,36 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 import project1 from '@/assets/project-1.jpg';
 import project2 from '@/assets/project-2.jpg';
 import project3 from '@/assets/project-3.jpg';
+import kk1 from '@/assets/projectos/kk1.webp';
+import kk2 from '@/assets/projectos/kk2.webp';
+import kk3 from '@/assets/projectos/kk3.webp';
+import kk4 from '@/assets/projectos/kk4.webp';
+import kk5 from '@/assets/projectos/kk5.webp';
+import videokk from '@/assets/projectos/video-kk.mp4';
+
+import explorand1 from '@/assets/projectos/explendor-1.webp';
+import explorand2 from '@/assets/projectos/explendor-2.webp';
+import explorand3 from '@/assets/projectos/explendor-3.webp';
+import explorand4 from '@/assets/projectos/explendor-4.webp';
+import explorand5 from '@/assets/projectos/explendor-5.webp';
+
+import sanep1 from '@/assets/projectos/sanep-1.webp';
+import sanep2 from '@/assets/projectos/sanep-2.webp';
+import sanep3 from '@/assets/projectos/sanep-3.webp';
+import sanep4 from '@/assets/projectos/sanep-4.webp';
+import sanep5 from '@/assets/projectos/sanep-5.webp';
+import sanep6 from '@/assets/projectos/sanep-6.webp';
+
 
 type ProjectStatus = 'all' | 'concluido' | 'construcao' | 'planejamento';
 
@@ -27,6 +54,8 @@ type Project = {
   description: string;
   fullDescription: string;
   image: string;
+  gallery?: string[];
+  video?: string;
   features: string[];
   startDate?: string;
   completionDate?: string;
@@ -48,15 +77,17 @@ const ProjectsSection = () => {
   const projects: Project[] = [
     {
       id: 1,
-      name: 'Residencial Esperança',
+      name: 'Vila Sanep',
       location: 'Luanda Sul',
-      status: 'concluido' as const,
-      statusLabel: 'Concluído',
+      status: 'planejamento' as const,
+      statusLabel: 'Em Planeamento',
       units: 80,
-      types: 'T2, T3 e T4',
+      types: 'V3, V4 e V5',
       description: 'O primeiro empreendimento da cooperativa, oferecendo apartamentos modernos com áreas de lazer e segurança 24h.',
-      fullDescription: 'O Residencial Esperança foi o primeiro empreendimento da cooperativa, marcando o início da nossa missão de proporcionar habitação de qualidade para as famílias angolanas. Localizado em Luanda Sul, este projecto oferece 80 unidades habitacionais modernas, distribuídas em apartamentos T2, T3 e T4, todos cuidadosamente planeados para maximizar o conforto e a funcionalidade. O empreendimento conta com infraestruturas completas de lazer, incluindo piscina, parque infantil, ginásio equipado e áreas verdes bem cuidadas. A segurança é uma prioridade, com sistema de vigilância 24 horas e controlo de acesso.',
-      image: project1,
+      fullDescription: 'Vila Sanep será o primeiro empreendimento da cooperativa, marcando o início da nossa missão de proporcionar habitação de qualidade para as famílias angolanas. Localizado em Luanda Sul, este projecto oferece 80 unidades habitacionais, distribuídas em vivendas V3, V4 e V5, todos cuidadosamente planeados para maximizar o conforto e a funcionalidade. O empreendimento conta com infraestruturas completas de lazer, incluindo piscina, parque infantil, ginásio equipado e áreas verdes bem cuidadas. A segurança é uma prioridade, com sistema de vigilância 24 horas e controlo de acesso.',
+      image: sanep1,
+      gallery: [sanep1, sanep2, sanep3, sanep4, sanep5, sanep6],
+      video: '', // Substitua pela URL real do vídeo
       features: ['Piscina', 'Parque Infantil', 'Ginásio', 'Segurança 24h', 'Áreas Verdes', 'Estacionamento Coberto'],
       startDate: 'Janeiro 2020',
       completionDate: 'Dezembro 2022',
@@ -64,7 +95,7 @@ const ProjectsSection = () => {
       investment: 'USD 12.5 milhões',
       contact: {
         phone: '+244 923 456 789',
-        email: 'esperanca@sanep.coop',
+        email: 'info@cooperativasanep.co.ao',
       },
     },
     {
@@ -76,36 +107,40 @@ const ProjectsSection = () => {
       units: 2.546,
       types: 'T3',
       description: 'Moradias geminadas em localização privilegiada, com fácil acesso a transportes e serviços.',
-      fullDescription: 'A Urbanização KK5800 representa um dos maiores projectos habitacionais da cooperativa, com 2.546 unidades habitacionais do tipo T3. Situada em Kilamba, uma das zonas mais desenvolvidas de Luanda, este empreendimento oferece moradias geminadas com jardim privado e garagem individual. A localização privilegiada garante fácil acesso a transportes públicos, escolas, hospitais e centros comerciais. O projecto inclui uma área comercial integrada, proporcionando conveniência aos residentes. Com previsão de conclusão em 2025, este projecto está a transformar a paisagem urbana de Kilamba.',
-      image: project2,
-      features: ['Jardim Privado', 'Garagem', 'Área Comercial', 'Escola Próxima', 'Acesso a Transportes', 'Centro de Saúde'],
-      startDate: 'Março 2022',
-      expectedCompletion: 'Dezembro 2025',
+      fullDescription: 'A Urbanização KK5800 representa um dos maiores projectos habitacionais da cooperativa, com 2.546 unidades habitacionais do tipo T3. Situada em Kilamba, uma das zonas mais desenvolvidas de Luanda, este empreendimento oferece moradias dignas para as famílias angolanas. A localização privilegiada garante fácil acesso a transportes públicos, escolas, hospitais e centros comerciais. O projecto inclui uma área comercial integrada, proporcionando conveniência aos residentes. Com previsão de conclusão em 2025, este projecto está a transformar a paisagem urbana de Kilamba.',
+      image: kk1,
+      gallery: [kk1, kk2, kk3, kk4, kk5],
+      video: videokk, // Substitua pela URL real do vídeo
+      features: ['Zonas Verdes', 'Garagem', 'Área Comercial', 'Escola Próxima', 'Acesso a Transportes', 'Centro de Saúde'],
+      startDate: 'Novembro 2025',
+      expectedCompletion: 'Dezembro 2026',
       totalArea: '450.000 m²',
       investment: 'USD 180 milhões',
       contact: {
         phone: '+244 923 456 790',
-        email: 'kk5800@sanep.coop',
+        email: 'info@cooperativasanep.co.ao',
       },
     },
     {
       id: 3,
-      name: 'Bairro Harmonia',
+      name: 'Urbanização Explendor',
       location: 'Benfica',
       status: 'planejamento' as const,
       statusLabel: 'Em Planeamento',
       units: 200,
-      types: 'T1 a T4',
+      types: 'V4 a V6',
       description: 'Nosso projecto mais ambicioso, com foco em sustentabilidade e comunidade integrada.',
-      fullDescription: 'O Bairro Harmonia é o nosso projecto mais ambicioso e inovador, com foco em sustentabilidade ambiental e integração comunitária. Localizado em Benfica, este empreendimento de 200 unidades habitacionais (T1 a T4) será pioneiro em Angola na implementação de soluções ecológicas. O projecto inclui sistema de energia solar para todas as unidades, hortas comunitárias para produção de alimentos, centro comunitário para actividades culturais e sociais, e uma rede completa de ciclovias. O Bairro Harmonia não é apenas um projecto habitacional, mas uma comunidade sustentável que promove o bem-estar social e ambiental. Com início previsto para 2024, este projecto estabelecerá novos padrões de desenvolvimento urbano sustentável em Angola.',
-      image: project3,
+      fullDescription: 'O Urbanização Explendor é o nosso projecto mais ambicioso e inovador, com foco em sustentabilidade ambiental e integração comunitária. Localizado em Benfica, este empreendimento de 200 unidades habitacionais (V4 a V6) será pioneiro em Angola na implementação de soluções ecológicas. O projecto inclui sistema de energia solar para todas as unidades, hortas comunitárias para produção de alimentos, centro comunitário para actividades culturais e sociais, e uma rede completa de ciclovias. O Urbanização Explendor não é apenas um projecto habitacional, mas uma comunidade sustentável que promove o bem-estar social e ambiental. Com início previsto para 2024, este projecto estabelecerá novos padrões de desenvolvimento urbano sustentável em Angola.',
+      image: explorand1,
+      gallery: [explorand1, explorand2, explorand3, explorand4, explorand5],
+      video: '', // Substitua pela URL real do vídeo
       features: ['Energia Solar', 'Hortas Comunitárias', 'Centro Comunitário', 'Ciclovias', 'Sistema de Reutilização de Água', 'Espaços Culturais'],
       expectedCompletion: '2027',
       totalArea: '85.000 m²',
       investment: 'USD 45 milhões',
       contact: {
         phone: '+244 923 456 791',
-        email: 'harmonia@sanep.coop',
+        email: 'info@cooperativasanep.co.ao',
       },
     },
   ];
@@ -296,6 +331,62 @@ const ProjectsSection = () => {
               </DialogHeader>
 
               <div className="space-y-6 py-4">
+                {/* Video Section */}
+                {selectedProject.video && (
+                  <div>
+                    <h4 className="font-semibold text-lg mb-4 flex items-center gap-2">
+                      <Video className="w-5 h-5 text-secondary" />
+                      Vídeo do Projecto
+                    </h4>
+                    <div className="relative w-full rounded-lg overflow-hidden bg-muted/30 shadow-lg border border-border" style={{ paddingBottom: '56.25%' }}>
+                      <iframe
+                        className="absolute top-0 left-0 w-full h-full border-0"
+                        src={selectedProject.video}
+                        title={`Vídeo do ${selectedProject.name}`}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Gallery Section */}
+                {selectedProject.gallery && selectedProject.gallery.length > 0 && (
+                  <div>
+                    <h4 className="font-semibold text-lg mb-4 flex items-center gap-2">
+                      <Images className="w-5 h-5 text-secondary" />
+                      Galeria de Fotografias
+                      <span className="text-sm text-muted-foreground font-normal ml-2">
+                        ({selectedProject.gallery.length} {selectedProject.gallery.length === 1 ? 'fotografia' : 'fotografias'})
+                      </span>
+                    </h4>
+                    <div className="relative">
+                      <Carousel className="w-full">
+                        <CarouselContent className="-ml-2 md:-ml-4">
+                          {selectedProject.gallery.map((img, index) => (
+                            <CarouselItem key={index} className="pl-2 md:pl-4">
+                              <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-muted/30 group">
+                                <img
+                                  src={img}
+                                  alt={`${selectedProject.name} - Imagem ${index + 1}`}
+                                  className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
+                                />
+                              </div>
+                            </CarouselItem>
+                          ))}
+                        </CarouselContent>
+                        {selectedProject.gallery.length > 1 && (
+                          <>
+                            <CarouselPrevious className="left-2 md:left-4" />
+                            <CarouselNext className="right-2 md:right-4" />
+                          </>
+                        )}
+                      </Carousel>
+                    </div>
+                  </div>
+                )}
+
                 {/* Project Stats */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   <div className="bg-muted/50 rounded-lg p-4">
