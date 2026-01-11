@@ -5,6 +5,7 @@ import ProjectsSection from '@/components/ProjectsSection';
 import JoinSection from '@/components/JoinSection';
 import PortalSection from '@/components/PortalSection';
 import Footer from '@/components/Footer';
+import ChatBot from '@/components/ChatBot';
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
         <PortalSection />
       </main>
       <Footer />
+      <ChatBot />
     </div>
   );
 };
