@@ -78,7 +78,7 @@ const ProjectsSection = () => {
     {
       id: 1,
       name: 'Vila Sanep',
-      location: 'Luanda Sul',
+      location: 'Camama, Luanda',
       status: 'planejamento' as const,
       statusLabel: 'Em Planeamento',
       units: 80,
@@ -124,7 +124,7 @@ const ProjectsSection = () => {
     {
       id: 3,
       name: 'Urbanização Explendor',
-      location: 'Benfica',
+      location: 'Camama, Luanda',
       status: 'planejamento' as const,
       statusLabel: 'Em Planeamento',
       units: 200,
