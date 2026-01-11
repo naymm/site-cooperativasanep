@@ -51,7 +51,7 @@ const AboutSection = () => {
                 Unidos pelo Sonho da{' '}
                 <span className="text-gradient-primary">Casa Própria</span>
               </h2>
-              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+              <p className="text-muted-foreground text-lg mb-8 leading-relaxed texto-justificado">
                 A Cooperativa de Habitação do Grupo Sanep (CHCGS) nasceu em 2024 com uma missão clara: 
                 transformar o sonho da habitação própria em realidade para famílias angolanas. Através 
                 do modelo cooperativo, unimos recursos e esforços para construir não apenas casas, 
@@ -71,7 +71,7 @@ const AboutSection = () => {
                   <Target className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-display font-semibold text-lg text-foreground mb-2">Nossa Missão</h3>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-muted-foreground text-sm texto-justificado">
                   Proporcionar habitação digna e acessível, fortalecendo o tecido social através 
                   da participação cooperativa.
                 </p>
@@ -81,7 +81,7 @@ const AboutSection = () => {
                   <Heart className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-display font-semibold text-lg text-foreground mb-2">Nossa Visão</h3>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-muted-foreground text-sm texto-justificado">
                   Ser a principal referência em habitação cooperativa em Angola, 
                   inspirando um novo modelo de desenvolvimento urbano.
                 </p>
