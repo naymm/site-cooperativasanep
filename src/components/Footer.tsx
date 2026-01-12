@@ -34,6 +34,7 @@ const Footer = () => {
   const quickLinks = [
     { label: 'Início', href: '#inicio' },
     { label: 'Sobre Nós', href: '#sobre' },
+    { label: 'Serviços', href: '#servicos' },
     { label: 'Projectos', href: '#projetos' },
     { label: 'Como Aderir', href: '#adesao' },
     { label: 'Portal do Cooperado', href: '#portal' },

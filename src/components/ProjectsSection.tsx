@@ -134,7 +134,7 @@ const ProjectsSection = () => {
       image: explorand1,
       gallery: [explorand1, explorand2, explorand3, explorand4, explorand5],
       video: '', // Substitua pela URL real do vídeo
-      features: ['Energia Solar', 'Hortas Comunitárias', 'Centro Comunitário', 'Ciclovias', 'Sistema de Reutilização de Água', 'Espaços Culturais'],
+      features: ['Energia', 'Hortas Comunitárias', 'Ciclovias', 'Sistema de Reutilização de Água', 'Espaços Culturais'],
       expectedCompletion: '2027',
       totalArea: '85.000 m²',
       investment: 'USD 45 milhões',

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Home, Users, Building2, UserPlus, LogIn } from 'lucide-react';
+import { Menu, X, Home, Users, Building2, UserPlus, LogIn, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 import logowhite from '@/logowhite.png';
@@ -20,6 +20,7 @@ const Header = () => {
   const navLinks = [
     { href: '#inicio', label: 'Início', icon: Home },
     { href: '#sobre', label: 'Sobre Nós', icon: Users },
+    { href: '#servicos', label: 'Serviços', icon: Briefcase },
     { href: '#projetos', label: 'Projectos', icon: Building2 },
     { href: '#adesao', label: 'Como Aderir', icon: UserPlus },
   ];
@@ -54,7 +55,7 @@ const Header = () => {
             <div className="relative h-12 flex items-center group-hover:scale-105 transition-transform duration-300">
               {/* Logo branco - visível quando header transparente */}
               <motion.img
-                src={logowhite}
+                src={logodark}
                 alt="Logo CHCGS"
                 className="h-full object-contain relative z-10 logo"
                 initial={false}
