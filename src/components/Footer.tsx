@@ -152,8 +152,8 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-secondary shrink-0" />
-                <a href="tel:+244923456789" className="text-white/70 text-sm hover:text-white">
-                  +244 923 456 789
+                <a href="tel:+244975673731" className="text-white/70 text-sm hover:text-white">
+                  +244 975 673 731
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -184,7 +184,7 @@ const Footer = () => {
               <Button
                 variant="whatsapp"
                 size="sm"
-                onClick={() => window.open('https://wa.me/244923456789', '_blank')}
+                onClick={() => window.open('https://wa.me/244975673731', '_blank')}
                 className="gap-2"
               >
                 <MessageCircle className="w-4 h-4" />

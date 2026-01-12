@@ -65,7 +65,7 @@ const JoinSection = () => {
     },
     {
       question: 'Qual é o valor da quota mensal?',
-      answer: 'O valor da quota é definido de acordo com o tipo de habitação pretendida, começando a partir de 50.000 Kz mensais. Oferecemos planos personalizados.',
+      answer: 'O valor da quota é definido de começando a partir de 5.000 Kz mensais. Oferecemos planos personalizados.',
     },
     {
       question: 'Posso perder o meu investimento?',
