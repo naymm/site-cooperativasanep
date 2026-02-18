@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "@/components/ui/use-toast";
+import { sendVisitConfirmationEmail, formatVisitDateForEmail } from "@/lib/emailjs";
 import { createVisitBooking, type DocumentType } from "@/lib/visitBooking";
 import { VISIT_TIMES, formatDateLabel, isAllowedVisitDate, isPastDay, slotAtISO, type VisitTime } from "@/lib/visitSlots";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -102,9 +103,25 @@ export default function AgendarVisita() {
         return;
       }
 
+      const emailResult = await sendVisitConfirmationEmail({
+        to_email: values.email.trim(),
+        first_name: values.first_name.trim(),
+        last_name: values.last_name.trim(),
+        project_name: values.project_name && values.project_name !== PROJECT_NONE_VALUE ? values.project_name.trim() : null,
+        visit_date: formatVisitDateForEmail(values.visit_date),
+        visit_time: values.visit_time,
+        booking_id: result.booking_id,
+        phone_primary: values.phone_primary.trim(),
+        phone_alt: values.phone_alt?.trim() ? values.phone_alt.trim() : null,
+        document_type: values.document_type,
+        document_number: values.document_number.trim(),
+      });
+
       toast({
         title: "Agendamento confirmado",
-        description: `Reserva criada com sucesso. Código: ${result.booking_id}`,
+        description: emailResult.sent
+          ? "Reserva criada com sucesso. Enviámos um e-mail de confirmação para o seu correio."
+          : `Reserva criada com sucesso. Código: ${result.booking_id}`,
       });
       form.reset({ ...form.getValues(), first_name: "", last_name: "", document_number: "", phone_primary: "", phone_alt: "", email: "" });
     } finally {

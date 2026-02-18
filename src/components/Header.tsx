@@ -45,7 +45,7 @@ const Header = () => {
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <a
-            href="#inicio"
+            href="/"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection('#inicio');

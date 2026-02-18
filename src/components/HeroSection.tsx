@@ -93,15 +93,7 @@ const HeroSection = () => {
               Faça Parte da Cooperativa
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button
-              variant="heroOutline"
-              size="xl"
-              onClick={() => scrollToSection('#projetos')}
-              className="group"
-            >
-              <Play className="w-5 h-5" />
-              Conheça Nossos Projectos
-            </Button>
+            
             <Button
               variant="heroOutline"
               size="xl"
