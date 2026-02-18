@@ -3,6 +3,7 @@ import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { MapPin, Home, ArrowRight, Check, Clock, Hammer, Calendar, Ruler, Users, Building2, Phone, Mail, Images, Video } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 import {
   Dialog,
   DialogContent,
@@ -73,6 +74,7 @@ const ProjectsSection = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [activeFilter, setActiveFilter] = useState<ProjectStatus>('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const navigate = useNavigate();
 
   const projects: Project[] = [
     {
@@ -502,6 +504,24 @@ const ProjectsSection = () => {
                     </div>
                   </div>
                 )}
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button
+                    className="w-full"
+                    onClick={() =>
+                      navigate(`/agendar-visita?project=${encodeURIComponent(selectedProject.name)}`)
+                    }
+                  >
+                    Agendar visita
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="w-full"
+                    onClick={() => setSelectedProject(null)}
+                  >
+                    Fechar
+                  </Button>
+                </div>
               </div>
             </>
           )}

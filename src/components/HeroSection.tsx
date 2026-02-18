@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Play, Users, Building, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Play, Users, Building, CheckCircle2, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import heroImage from '@/assets/hero-housing.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   const stats = [
     { icon: Users, value: '+100', label: 'Cooperados' },
     { icon: Building, value: '3', label: 'Projectos' },
@@ -99,6 +101,15 @@ const HeroSection = () => {
             >
               <Play className="w-5 h-5" />
               Conheça Nossos Projectos
+            </Button>
+            <Button
+              variant="heroOutline"
+              size="xl"
+              onClick={() => navigate('/agendar-visita')}
+              className="group"
+            >
+              <Calendar className="w-5 h-5" />
+              Agendar Visita
             </Button>
           </motion.div>
 
