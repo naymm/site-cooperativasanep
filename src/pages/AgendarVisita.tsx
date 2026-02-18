@@ -157,8 +157,8 @@ export default function AgendarVisita() {
                       name="project_name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Projecto (opcional)</FormLabel>
-                          <Select value={field.value ?? PROJECT_NONE_VALUE} onValueChange={field.onChange}>
+                          <FormLabel>Projecto</FormLabel>
+                          <Select value={field.value ?? PROJECT_NONE_VALUE} onValueChange={field.onChange} required>
                             <FormControl>
                               <SelectTrigger>
                                 <SelectValue placeholder="Escolha o projecto" />
@@ -185,7 +185,7 @@ export default function AgendarVisita() {
                           <FormItem>
                             <FormLabel>Primeiro nome</FormLabel>
                             <FormControl>
-                              <Input autoComplete="given-name" placeholder="Ex: Ana" {...field} />
+                              <Input required autoComplete="given-name" placeholder="Ex: Ana" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -198,7 +198,7 @@ export default function AgendarVisita() {
                           <FormItem>
                             <FormLabel>Último nome</FormLabel>
                             <FormControl>
-                              <Input autoComplete="family-name" placeholder="Ex: Santos" {...field} />
+                              <Input required autoComplete="family-name" placeholder="Ex: Santos" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -213,7 +213,7 @@ export default function AgendarVisita() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>Documento</FormLabel>
-                            <Select value={field.value} onValueChange={field.onChange}>
+                            <Select value={field.value} onValueChange={field.onChange} required>
                               <FormControl>
                                 <SelectTrigger>
                                   <SelectValue placeholder="Escolha" />
@@ -235,7 +235,7 @@ export default function AgendarVisita() {
                           <FormItem className="sm:col-span-2">
                             <FormLabel>Nº do documento</FormLabel>
                             <FormControl>
-                              <Input placeholder="BI / Passaporte" {...field} />
+                              <Input required placeholder="BI / Passaporte" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -251,7 +251,7 @@ export default function AgendarVisita() {
                           <FormItem>
                             <FormLabel>Telefone (principal)</FormLabel>
                             <FormControl>
-                              <Input inputMode="tel" placeholder="+244 ..." {...field} />
+                              <Input required inputMode="tel" placeholder="+244 ..." {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -262,7 +262,7 @@ export default function AgendarVisita() {
                         name="phone_alt"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Telefone (alternativo)</FormLabel>
+                            <FormLabel>Telefone (alternativo) - Opcional</FormLabel>
                             <FormControl>
                               <Input inputMode="tel" placeholder="+244 ..." {...field} />
                             </FormControl>
@@ -279,7 +279,7 @@ export default function AgendarVisita() {
                         <FormItem>
                           <FormLabel>Email</FormLabel>
                           <FormControl>
-                            <Input type="email" autoComplete="email" placeholder="ex: nome@email.com" {...field} />
+                            <Input required type="email" autoComplete="email" placeholder="ex: nome@email.com" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
